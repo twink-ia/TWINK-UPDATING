@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TWINK IA • Atualização</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: #050505;
+            color: #f0f0f0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* GLOW BACKGROUND */
+        .glow-1 {
+            position: absolute;
+            top: -20%;
+            left: -10%;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(circle, rgba(66,133,244,0.2) 0%, transparent 70%);
+            filter: blur(80px);
+            animation: float 20s infinite alternate;
+            z-index: -1;
+        }
+
+        .glow-2 {
+            position: absolute;
+            bottom: -20%;
+            right: -10%;
+            width: 70%;
+            height: 70%;
+            background: radial-gradient(circle, rgba(155,114,203,0.15) 0%, transparent 70%);
+            filter: blur(90px);
+            animation: float 25s infinite alternate-reverse;
+            z-index: -1;
+        }
+
+        .glow-3 {
+            position: absolute;
+            top: 40%;
+            left: 30%;
+            width: 40%;
+            height: 40%;
+            background: radial-gradient(circle, rgba(217,101,112,0.1) 0%, transparent 70%);
+            filter: blur(70px);
+            animation: float 18s infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(5%, 5%) scale(1.2); }
+        }
+
+        /* CONTAINER PRINCIPAL */
+        .main-container {
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* CARD PRINCIPAL */
+        .update-card {
+            background: rgba(20, 21, 23, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 48px;
+            padding: 60px 40px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .update-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #4285f4, #9b72cb, #d96570, transparent);
+            animation: borderLight 3s linear infinite;
+        }
+
+        @keyframes borderLight {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* ÍCONE ANIMADO */
+        .update-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            background: linear-gradient(135deg, rgba(66,133,244,0.2), rgba(155,114,203,0.2), rgba(217,101,112,0.2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: pulse 3s infinite;
+        }
+
+        .update-icon::before {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4285f4, #9b72cb, #d96570);
+            opacity: 0.3;
+            filter: blur(15px);
+            animation: rotate 10s linear infinite;
+        }
+
+        .update-icon svg {
+            width: 60px;
+            height: 60px;
+            fill: white;
+            position: relative;
+            z-index: 2;
+            animation: spin 4s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* TÍTULO */
+        h1 {
+            font-size: clamp(40px, 8vw, 72px);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #4285f4, #9b72cb, #d96570);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shine 3s linear infinite;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        /* SUBTÍTULO */
+        .subtitle {
+            font-size: clamp(16px, 3vw, 22px);
+            color: #9ca3af;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        /* BARRA DE PROGRESSO */
+        .progress-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            width: 70%;
+            height: 100%;
+            background: linear-gradient(90deg, #4285f4, #9b72cb, #d96570);
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .progress-text {
+            text-align: center;
+            margin-top: 15px;
+            color: #6b7280;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .update-card {
+                padding: 40px 20px;
+                border-radius: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- GLOWS DE FUNDO -->
+    <div class="glow-1"></div>
+    <div class="glow-2"></div>
+    <div class="glow-3"></div>
+
+    <!-- EFEITO DE GRADE -->
+    <div style="position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 50px 50px; z-index: -1;"></div>
+
+    <div class="main-container">
+        <div class="update-card">
+
+            <!-- ÍCONE ANIMADO -->
+            <div class="update-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+                </svg>
+            </div>
+
+            <!-- TÍTULO PRINCIPAL -->
+            <h1>
+                <span class="gradient-text">TWINK IA</span>
+                <br>EM ATUALIZAÇÃO
+            </h1>
+
+            <!-- SUBTÍTULO -->
+            <p class="subtitle">
+                Estamos preparando novidades incríveis para você! 
+                <br>Novos recursos, mais velocidade e uma experiência ainda melhor.
+            </p>
+
+            <!-- BARRA DE PROGRESSO -->
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="progress-text">
+                    ATUALIZANDO SISTEMAS • 70% CONCLUÍDO
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
